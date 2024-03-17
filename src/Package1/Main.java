@@ -41,6 +41,11 @@ public class Main extends javax.swing.JFrame {
         jtable_vendedor.getTableHeader().setOpaque(false);
         jtable_vendedor.getTableHeader().setBackground(new Color(62,120,202));
         jtable_vendedor.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_prop_mercado.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_prop_mercado.getTableHeader().setOpaque(false);
+        jtable_prop_mercado.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_prop_mercado.getTableHeader().setForeground(new Color(255,255,255));
     }
 
     @SuppressWarnings("unchecked")
@@ -167,6 +172,29 @@ public class Main extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jtable_vendedor = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        tf_nombre_prop_mercado = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        tf_ciudad_prop_mercado = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        tf_direccion_prop_mercado = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        tf_cant_dormitorios_prop_mercado = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        tf_caracteristicas_prop_mercado = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        tf_precio_prop_mercado = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        tf_identidad_agente_prop_mercado = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        tf_identidad_vendedor_prop_mercado = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jtable_prop_mercado = new javax.swing.JTable();
+        jdc_fecha_pub_prop_merc = new com.toedter.calendar.JDateChooser();
+        jLabel41 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jp_bitacora_admin = new javax.swing.JPanel();
         jp_reportes_admin = new javax.swing.JPanel();
@@ -180,6 +208,9 @@ public class Main extends javax.swing.JFrame {
         jPopUp_vendedores = new javax.swing.JPopupMenu();
         jmi_modificar_vendedor = new javax.swing.JMenuItem();
         jmi_eliminar_vendedor = new javax.swing.JMenuItem();
+        jPopUp_prop_merc = new javax.swing.JPopupMenu();
+        jmi_modificar_prop_merc = new javax.swing.JMenuItem();
+        jmi_eliminar_prop_merc = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1176,62 +1207,55 @@ public class Main extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(582, Short.MAX_VALUE))
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel12Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel24)
-                        .addComponent(tf_identidad_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel25)
-                        .addComponent(tf_nombre_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel26)
-                        .addComponent(tf_celular_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel12Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(bt_crear_comprador))
-                        .addGroup(jPanel12Layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(bt_modificar_comprador)))
-                    .addGap(40, 40, 40)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(tf_identidad_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel25)
+                            .addComponent(tf_nombre_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel26)
+                            .addComponent(tf_celular_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(bt_crear_comprador))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(bt_modificar_comprador)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel12Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel12Layout.createSequentialGroup()
-                            .addGap(5, 5, 5)
-                            .addComponent(jLabel24)
-                            .addGap(6, 6, 6)
-                            .addComponent(tf_identidad_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(jLabel25)
-                            .addGap(6, 6, 6)
-                            .addComponent(tf_nombre_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(jLabel26)
-                            .addGap(6, 6, 6)
-                            .addComponent(tf_celular_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(210, 210, 210)
-                            .addComponent(bt_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(24, 24, 24)
-                            .addComponent(bt_modificar_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_identidad_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_nombre_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_celular_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(bt_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(bt_modificar_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jtp_mantenimiento.addTab("COMPRADORES", jPanel12);
@@ -1330,7 +1354,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(bt_crear_vendedor))
                             .addComponent(bt_modificar_vendedor))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -1341,7 +1365,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addContainerGap(27, Short.MAX_VALUE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addGap(6, 6, 6)
@@ -1368,17 +1392,110 @@ public class Main extends javax.swing.JFrame {
         jtp_mantenimiento.addTab("VENDEDORES", jPanel13);
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 845, Short.MAX_VALUE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
-        );
+        jLabel32.setText("Nombre:");
+        jPanel14.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jPanel14.add(tf_nombre_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 31, 175, -1));
+
+        jLabel33.setText("Ciudad:");
+        jPanel14.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 50, -1));
+        jPanel14.add(tf_ciudad_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 31, 175, -1));
+
+        jLabel34.setText("Direccion:");
+        jPanel14.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 11, -1, -1));
+        jPanel14.add(tf_direccion_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 31, 175, -1));
+
+        jLabel35.setText("Cantidad de dormitorios:");
+        jPanel14.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 11, -1, -1));
+        jPanel14.add(tf_cant_dormitorios_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 31, 175, -1));
+
+        jLabel36.setText("Caracteristicas:");
+        jPanel14.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, -1, -1));
+        jPanel14.add(tf_caracteristicas_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 82, 175, -1));
+
+        jLabel37.setText("Precio:");
+        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 62, -1, -1));
+        jPanel14.add(tf_precio_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 82, 175, -1));
+        jPanel14.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 462, -1, -1));
+
+        jLabel39.setText("Identidad Agente:");
+        jPanel14.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 62, -1, -1));
+        jPanel14.add(tf_identidad_agente_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 82, 175, -1));
+
+        jLabel40.setText("Identidad Vendedor");
+        jPanel14.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 62, -1, -1));
+        jPanel14.add(tf_identidad_vendedor_prop_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 82, 175, -1));
+
+        jButton1.setText("Crear Propiedad En Mercado");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel14.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 175, 29));
+
+        jButton2.setText("Modificar Propiedad En Mercado");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel14.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, 31));
+
+        jtable_prop_mercado.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_prop_mercado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Id Agente", "Id Vendedor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_prop_mercado.setRowHeight(25);
+        jtable_prop_mercado.setRowMargin(0);
+        jtable_prop_mercado.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_prop_mercado.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_prop_mercado.getTableHeader().setReorderingAllowed(false);
+        jtable_prop_mercado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_prop_mercadoMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(jtable_prop_mercado);
+        if (jtable_prop_mercado.getColumnModel().getColumnCount() > 0) {
+            jtable_prop_mercado.getColumnModel().getColumn(0).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(1).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(2).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(3).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(4).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(5).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(6).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(7).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(8).setResizable(false);
+            jtable_prop_mercado.getColumnModel().getColumn(9).setResizable(false);
+        }
+
+        jPanel14.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 830, 368));
+        jPanel14.add(jdc_fecha_pub_prop_merc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 180, -1));
+
+        jLabel41.setText("Fecha de publicacion:");
+        jPanel14.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, -1));
 
         jtp_mantenimiento.addTab("PROPIEDADES EN MERCADO", jPanel14);
 
@@ -1388,11 +1505,11 @@ public class Main extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 845, Short.MAX_VALUE)
+            .addGap(0, 925, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGap(0, 548, Short.MAX_VALUE)
         );
 
         jtp_mantenimiento.addTab("PROPIEDADES VENDIDAS", jPanel15);
@@ -1497,6 +1614,24 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPopUp_vendedores.add(jmi_eliminar_vendedor);
+
+        jmi_modificar_prop_merc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Modify16px.png"))); // NOI18N
+        jmi_modificar_prop_merc.setText("Modificar");
+        jmi_modificar_prop_merc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificar_prop_mercActionPerformed(evt);
+            }
+        });
+        jPopUp_prop_merc.add(jmi_modificar_prop_merc);
+
+        jmi_eliminar_prop_merc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eliminar16px.png"))); // NOI18N
+        jmi_eliminar_prop_merc.setText("Eliminar");
+        jmi_eliminar_prop_merc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminar_prop_mercActionPerformed(evt);
+            }
+        });
+        jPopUp_prop_merc.add(jmi_eliminar_prop_merc);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2187,6 +2322,7 @@ public class Main extends javax.swing.JFrame {
         listarAgentes();
         listarCompradores();
         listarVendedores();
+        listarPropiedasEnMercado();
     }//GEN-LAST:event_jp_sb_mantenimientoMouseClicked
 
     private void jp_sb_bitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_bitacoraMouseClicked
@@ -2505,6 +2641,8 @@ public class Main extends javax.swing.JFrame {
             listarCompradores();
         } else if(selectedIndex == 2){
             listarVendedores();
+        } else if(selectedIndex == 3){
+            listarPropiedasEnMercado();
         }
     }//GEN-LAST:event_jtp_mantenimientoStateChanged
 
@@ -2657,6 +2795,190 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmi_eliminar_vendedorActionPerformed
 
+    private void jtable_prop_mercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_prop_mercadoMouseClicked
+        if(jtable_prop_mercado.getSelectedRow() >= 0){
+                if(evt.isMetaDown()){
+                    jPopUp_prop_merc.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            } 
+    }//GEN-LAST:event_jtable_prop_mercadoMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        try {
+            //Obtenemos los datos de la propiedad_en_mercado a agregar
+            String nombre = tf_nombre_prop_mercado.getText();
+            String ciudad = tf_ciudad_prop_mercado.getText();
+            String direccion = tf_direccion_prop_mercado.getText();
+            int cant_dormitorios = Integer.parseInt(tf_cant_dormitorios_prop_mercado.getText());
+            String caracteristicas = tf_caracteristicas_prop_mercado.getText();
+            double precio = Double.parseDouble(tf_precio_prop_mercado.getText());
+            int id_agente = Integer.parseInt(tf_identidad_agente_prop_mercado.getText());
+            int id_vendedor = Integer.parseInt(tf_identidad_vendedor_prop_mercado.getText());
+            
+            
+               
+            
+                //
+                Dba db = new Dba(db_Name);
+                db.conectar();
+
+                PreparedStatement pstmt = db.conexion.prepareStatement("{call dbo.createPropiedad_En_Mercado_SP(?,?,?,?,?,?,?,?)}");
+                pstmt.setString(1, nombre);
+                pstmt.setString(2, ciudad);
+                pstmt.setString(3, direccion);
+                pstmt.setInt(4, cant_dormitorios);
+                pstmt.setString(5, caracteristicas);
+                pstmt.setDouble(6, precio);
+                pstmt.setInt(7, id_agente);
+                pstmt.setInt(8, id_vendedor);
+                pstmt.execute();
+
+                db.desconectar();
+                //
+
+                JOptionPane.showMessageDialog(jf_home, "Propiedad_En_Mercado Creada Exitosamente!");
+                // actualizamos la tabla de propiedades en mercado
+                listarPropiedasEnMercado();
+
+                // Limpiar controles
+                tf_nombre_prop_mercado.setText("");
+                tf_ciudad_prop_mercado.setText("");
+                tf_direccion_prop_mercado.setText("");
+                tf_cant_dormitorios_prop_mercado.setText("");
+                tf_caracteristicas_prop_mercado.setText("");
+                tf_precio_prop_mercado.setText("");
+                tf_identidad_agente_prop_mercado.setText("");
+                tf_identidad_vendedor_prop_mercado.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jf_home, "Valores no cumplen las restricciones!");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jmi_modificar_prop_mercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificar_prop_mercActionPerformed
+        int row = jtable_prop_mercado.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) jtable_prop_mercado.getModel();
+        id_prop_merc_a_modificar= Integer.parseInt(modelo.getValueAt(row, 0).toString());
+        System.out.println(id_prop_merc_a_modificar);
+        tf_nombre_prop_mercado.setText(modelo.getValueAt(row, 1).toString());
+        tf_ciudad_prop_mercado.setText(modelo.getValueAt(row, 2).toString());
+        tf_direccion_prop_mercado.setText(modelo.getValueAt(row, 3).toString());
+        tf_cant_dormitorios_prop_mercado.setText(modelo.getValueAt(row, 4).toString());
+        tf_caracteristicas_prop_mercado.setText(modelo.getValueAt(row, 5).toString());
+        tf_precio_prop_mercado.setText(modelo.getValueAt(row, 6).toString());
+        tf_identidad_agente_prop_mercado.setText(modelo.getValueAt(row, 8).toString());
+        tf_identidad_vendedor_prop_mercado.setText(modelo.getValueAt(row, 9).toString());
+    }//GEN-LAST:event_jmi_modificar_prop_mercActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        try {
+            //Obtenemos los datos de la propiedad_en_mercado a modificar
+            String nombre = tf_nombre_prop_mercado.getText();
+            String ciudad = tf_ciudad_prop_mercado.getText();
+            String direccion = tf_direccion_prop_mercado.getText();
+            int cant_dormitorios = Integer.parseInt(tf_cant_dormitorios_prop_mercado.getText());
+            String caracteristicas = tf_caracteristicas_prop_mercado.getText();
+            double precio = Double.parseDouble(tf_precio_prop_mercado.getText());
+            int id_agente = Integer.parseInt(tf_identidad_agente_prop_mercado.getText());
+            int id_vendedor = Integer.parseInt(tf_identidad_vendedor_prop_mercado.getText());
+            
+            java.util.Date utilDate = jdc_fecha_pub_prop_merc.getDate();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            final String stringDate= dateFormat.format(utilDate);
+            final java.sql.Date sqlDate=  java.sql.Date.valueOf(stringDate);
+               
+            
+                //
+                Dba db = new Dba(db_Name);
+                db.conectar();
+
+                PreparedStatement pstmt = db.conexion.prepareStatement("{call dbo.updatePropiedad_En_Mercado_SP(?,?,?,?,?,?,?,?,?,?)}");
+                pstmt.setString(1, nombre);
+                pstmt.setString(2, ciudad);
+                pstmt.setString(3, direccion);
+                pstmt.setInt(4, cant_dormitorios);
+                pstmt.setString(5, caracteristicas);
+                pstmt.setDouble(6, precio);
+                pstmt.setDate(7, sqlDate);
+                pstmt.setInt(8, id_agente);
+                pstmt.setInt(9, id_vendedor);
+                pstmt.setInt(10, id_prop_merc_a_modificar);
+                pstmt.execute();
+
+                db.desconectar();
+                //
+
+                JOptionPane.showMessageDialog(jf_home, "Propiedad_En_Mercado Modificada Exitosamente!");
+                // actualizamos la tabla de propiedades en mercado
+                listarPropiedasEnMercado();
+
+                // Limpiar controles
+                tf_nombre_prop_mercado.setText("");
+                tf_ciudad_prop_mercado.setText("");
+                tf_direccion_prop_mercado.setText("");
+                tf_cant_dormitorios_prop_mercado.setText("");
+                tf_caracteristicas_prop_mercado.setText("");
+                tf_precio_prop_mercado.setText("");
+                tf_identidad_agente_prop_mercado.setText("");
+                tf_identidad_vendedor_prop_mercado.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jf_home, "Valores no cumplen las restricciones!");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jmi_eliminar_prop_mercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminar_prop_mercActionPerformed
+        int row = jtable_prop_mercado.getSelectedRow();
+        DefaultTableModel modelo = (DefaultTableModel) jtable_prop_mercado.getModel();
+        id_prop_merc_a_modificar= Integer.parseInt(modelo.getValueAt(row, 0).toString());
+         try {
+            Dba db = new Dba(db_Name);
+            db.conectar();
+            
+            PreparedStatement pstmt = db.conexion.prepareStatement("{call dbo.deletePropiedad_En_Mercado_SP(?)}");
+            pstmt.setInt(1, id_prop_merc_a_modificar);
+            pstmt.execute();
+            
+            db.desconectar();
+            
+            JOptionPane.showMessageDialog(jf_home, "Propiedad En Mercado Eliminada Exitosamente!");
+            listarPropiedasEnMercado();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jf_home, "Valores no cumplen las restricciones!");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jmi_eliminar_prop_mercActionPerformed
+
+    public void listarPropiedasEnMercado(){
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_EN_MERCADO");
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_prop_mercado.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                int id_agente = rs.getInt(9);
+                int id_vendedor = rs.getInt(10);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v,id_agente, id_vendedor});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void listarVendedores(){
         Dba db = new Dba(db_Name);
         db.conectar();
@@ -2716,6 +3038,24 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public boolean verificar_id_Propiedad_En_Mercado(int identidad){
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select idPropiedad from PROPIEDAD_EN_MERCADO");
+            ResultSet rs = db.query.getResultSet();
+            while(rs.next()){
+                if(rs.getInt(1)== identidad){
+                    return false;
+                }
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
     
     public boolean verificar_id_vendedor(int identidad){
@@ -2961,6 +3301,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificar_agente;
     private javax.swing.JButton bt_modificar_comprador;
     private javax.swing.JButton bt_modificar_vendedor;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2986,7 +3328,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -3008,6 +3360,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopUp_agentes;
     private javax.swing.JPopupMenu jPopUp_compradores;
+    private javax.swing.JPopupMenu jPopUp_prop_merc;
     private javax.swing.JPopupMenu jPopUp_vendedores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3015,6 +3368,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private com.toedter.calendar.JDateChooser jdc_fecha_pub_prop_merc;
     private javax.swing.JFrame jf_home;
     private javax.swing.JFrame jf_login;
     private javax.swing.JLabel jl_FechaActual_home;
@@ -3031,9 +3386,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jl_username;
     private javax.swing.JMenuItem jmi_eliminar_agente;
     private javax.swing.JMenuItem jmi_eliminar_comprador;
+    private javax.swing.JMenuItem jmi_eliminar_prop_merc;
     private javax.swing.JMenuItem jmi_eliminar_vendedor;
     private javax.swing.JMenuItem jmi_modificar_agente;
     private javax.swing.JMenuItem jmi_modificar_comprador;
+    private javax.swing.JMenuItem jmi_modificar_prop_merc;
     private javax.swing.JMenuItem jmi_modificar_vendedor;
     private javax.swing.JPanel jp_Header_Inicio;
     private javax.swing.JPanel jp_adm;
@@ -3082,24 +3439,33 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jp_vendedor;
     private javax.swing.JTable jtable_agentes;
     private javax.swing.JTable jtable_comprador;
+    private javax.swing.JTable jtable_prop_mercado;
     private javax.swing.JTable jtable_vendedor;
     private javax.swing.JTabbedPane jtp_mantenimiento;
     private javax.swing.JPasswordField pf_password_login;
     private test.PanelRound rp_entrar_login;
     private test.PanelRound rp_userHolder;
+    private javax.swing.JTextField tf_cant_dormitorios_prop_mercado;
+    private javax.swing.JTextField tf_caracteristicas_prop_mercado;
     private javax.swing.JTextField tf_celular_crear_agente;
     private javax.swing.JTextField tf_celular_crear_comprador;
     private javax.swing.JTextField tf_celular_crear_vendedor;
+    private javax.swing.JTextField tf_ciudad_prop_mercado;
     private javax.swing.JTextField tf_correo_login;
     private javax.swing.JTextArea tf_direccion_crear_agente;
     private javax.swing.JTextArea tf_direccion_crear_comprador;
     private javax.swing.JTextArea tf_direccion_crear_vendedor;
+    private javax.swing.JTextField tf_direccion_prop_mercado;
+    private javax.swing.JTextField tf_identidad_agente_prop_mercado;
     private javax.swing.JTextField tf_identidad_crear_agente;
     private javax.swing.JTextField tf_identidad_crear_comprador;
     private javax.swing.JTextField tf_identidad_crear_vendedor;
+    private javax.swing.JTextField tf_identidad_vendedor_prop_mercado;
     private javax.swing.JTextField tf_nombre_crear_agente;
     private javax.swing.JTextField tf_nombre_crear_comprador;
     private javax.swing.JTextField tf_nombre_crear_vendedor;
+    private javax.swing.JTextField tf_nombre_prop_mercado;
+    private javax.swing.JTextField tf_precio_prop_mercado;
     private javax.swing.JTextField tf_telefonoOficina_crear_agente;
     // End of variables declaration//GEN-END:variables
     
@@ -3124,4 +3490,5 @@ public class Main extends javax.swing.JFrame {
     private int identidad_agente_a_modificar;
     private int identidad_comprador_a_modificar;
     private int identidad_vendedor_a_modificar;
+    private int id_prop_merc_a_modificar;
 }
