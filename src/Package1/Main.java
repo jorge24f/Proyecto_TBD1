@@ -85,6 +85,11 @@ public class Main extends javax.swing.JFrame {
         jtable_propiedades_compradas_comprador.getTableHeader().setOpaque(false);
         jtable_propiedades_compradas_comprador.getTableHeader().setBackground(new Color(62,120,202));
         jtable_propiedades_compradas_comprador.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_reportes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_reportes.getTableHeader().setOpaque(false);
+        jtable_reportes.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_reportes.getTableHeader().setForeground(new Color(255,255,255));
     }
 
     @SuppressWarnings("unchecked")
@@ -281,6 +286,10 @@ public class Main extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         jtable_bitacora = new javax.swing.JTable();
         jp_reportes_admin = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jtable_reportes = new javax.swing.JTable();
+        cb_vistas = new javax.swing.JComboBox<>();
+        jLabel56 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jPopUp_agentes = new javax.swing.JPopupMenu();
         jmi_modificar_agente = new javax.swing.JMenuItem();
@@ -1692,10 +1701,11 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jtable_vendedor);
         if (jtable_vendedor.getColumnModel().getColumnCount() > 0) {
-            jtable_vendedor.getColumnModel().getColumn(0).setResizable(false);
-            jtable_vendedor.getColumnModel().getColumn(1).setResizable(false);
-            jtable_vendedor.getColumnModel().getColumn(2).setResizable(false);
+            jtable_vendedor.getColumnModel().getColumn(0).setHeaderValue("Tabla Afectada");
+            jtable_vendedor.getColumnModel().getColumn(1).setHeaderValue("Operacion");
+            jtable_vendedor.getColumnModel().getColumn(2).setHeaderValue("Usuario");
             jtable_vendedor.getColumnModel().getColumn(3).setResizable(false);
+            jtable_vendedor.getColumnModel().getColumn(3).setHeaderValue("Fecha");
         }
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -2055,11 +2065,12 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane9.setViewportView(jtable_bitacora);
         if (jtable_bitacora.getColumnModel().getColumnCount() > 0) {
-            jtable_bitacora.getColumnModel().getColumn(0).setResizable(false);
-            jtable_bitacora.getColumnModel().getColumn(1).setResizable(false);
-            jtable_bitacora.getColumnModel().getColumn(2).setResizable(false);
-            jtable_bitacora.getColumnModel().getColumn(3).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(0).setHeaderValue("idBitacora");
+            jtable_bitacora.getColumnModel().getColumn(1).setHeaderValue("Tabla Afectada");
+            jtable_bitacora.getColumnModel().getColumn(2).setHeaderValue("Operacion");
+            jtable_bitacora.getColumnModel().getColumn(3).setHeaderValue("Usuario");
             jtable_bitacora.getColumnModel().getColumn(4).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(4).setHeaderValue("Fecha");
         }
 
         javax.swing.GroupLayout jp_bitacora_adminLayout = new javax.swing.GroupLayout(jp_bitacora_admin);
@@ -2083,15 +2094,58 @@ public class Main extends javax.swing.JFrame {
 
         jp_reportes_admin.setBackground(new java.awt.Color(255, 255, 255));
 
+        jtable_reportes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_reportes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jtable_reportes.setRowHeight(25);
+        jtable_reportes.setRowMargin(0);
+        jtable_reportes.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_reportes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_reportes.getTableHeader().setReorderingAllowed(false);
+        jtable_reportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_reportesMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(jtable_reportes);
+
+        cb_vistas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantidad de ventas por agente", "Cantidad de ventas por vendedor", "Cantidad de compras por comprador", "Ventas por ubicacion", "Ventas por precio de propiedad", "Ventas de propiedades por carateristicas ", "Agente que vendio la mayor cantidad de propiedades en el año por valor total", "Para cada agente, calcule el precio de venta promedio de la propiedades vendidas en el año y el tiempo promedio que la propiedad estuvo en el mercado", " " }));
+        cb_vistas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_vistasItemStateChanged(evt);
+            }
+        });
+
+        jLabel56.setText("Seleccione una vista:");
+
         javax.swing.GroupLayout jp_reportes_adminLayout = new javax.swing.GroupLayout(jp_reportes_admin);
         jp_reportes_admin.setLayout(jp_reportes_adminLayout);
         jp_reportes_adminLayout.setHorizontalGroup(
             jp_reportes_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_reportes_adminLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jp_reportes_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel56)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addComponent(cb_vistas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jp_reportes_adminLayout.setVerticalGroup(
             jp_reportes_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_reportes_adminLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_vistas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_reportes_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
@@ -2959,6 +3013,31 @@ public class Main extends javax.swing.JFrame {
         jp_mantemiento_admin.setVisible(false);
         jp_bitacora_admin.setVisible(false);
         jp_reportes_admin.setVisible(true);
+        
+        Dba db = new Dba(db_Name);
+            db.conectar();
+
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreAgente");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            
+            try {
+                db.query.execute("Select * from VENTASxAGENTE");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }//GEN-LAST:event_jp_sb_reportesMouseClicked
 
     private void jp_sb_mantenimientoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_mantenimientoMouseMoved
@@ -3774,6 +3853,191 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtable_propiedades_compradas_compradorMouseClicked
 
+    private void jtable_reportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_reportesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_reportesMouseClicked
+
+    private void cb_vistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_vistasItemStateChanged
+        int num_vista = cb_vistas.getSelectedIndex();
+        
+        Dba db = new Dba(db_Name);
+        db.conectar();
+            
+        if(num_vista == 0){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreAgente");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            
+            try {
+                db.query.execute("Select * from VENTASxAGENTE");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 1){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreVendedor");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from VENTASxVENDEDOR");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 2){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreComprador");
+            modelo.addColumn("CantidadCompras");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from COMPRASxCOMPRADOR");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 3){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Ciudad");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from VENTASxUBICACION");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 4){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("RangoPrecio");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from VENTASxPRECIO");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 5){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Caracteristicas");
+            modelo.addColumn("CantidadVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from VENTASxCARACTERISTICAS");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 6){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreAgente");
+            modelo.addColumn("ValorTotalVentas");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[2];
+
+            try {
+                db.query.execute("Select * from AGENTExVENTAS_MAYOR_TOTAL");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(num_vista == 7){
+            // Modelo tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("NombreAgente");
+            modelo.addColumn("PrecioVentaPromedio");
+            modelo.addColumn("TiempoPromedioEnMercado");
+            jtable_reportes.setModel(modelo);
+
+            // Datos
+            String[] datos = new String[3];
+
+            try {
+                db.query.execute("Select * from VISTA_8");
+                ResultSet rs = db.query.getResultSet();
+                while(rs.next()){
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    datos[2] = rs.getString(3);
+                    modelo.addRow(datos);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        db.desconectar();
+    }//GEN-LAST:event_cb_vistasItemStateChanged
+
     public void listar_propiedades_compradas_comprador(){
         // Mostrar tabla
         Dba db = new Dba(db_Name);
@@ -4340,6 +4604,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificar_comprador;
     private javax.swing.JButton bt_modificar_vendedor;
     private javax.swing.JComboBox<String> cb_propiedades_vendidas;
+    private javax.swing.JComboBox<String> cb_vistas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -4393,6 +4658,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4422,6 +4688,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4514,6 +4781,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jtable_prop_ven_vendedor;
     private javax.swing.JTable jtable_prop_vendida;
     private javax.swing.JTable jtable_propiedades_compradas_comprador;
+    private javax.swing.JTable jtable_reportes;
     private javax.swing.JTable jtable_vendedor;
     private javax.swing.JTabbedPane jtp_mantenimiento;
     private javax.swing.JPasswordField pf_password_login;
