@@ -28,6 +28,9 @@ public class Main extends javax.swing.JFrame {
         String fecha_home=sdf.format(fa);
         jl_FechaActual_home.setText(fecha_home);
         
+        Dba db = new Dba();
+        db.conectar();
+        
         jtable_agentes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jtable_agentes.getTableHeader().setOpaque(false);
         jtable_agentes.getTableHeader().setBackground(new Color(62,120,202));
@@ -52,6 +55,36 @@ public class Main extends javax.swing.JFrame {
         jtable_prop_vendida.getTableHeader().setOpaque(false);
         jtable_prop_vendida.getTableHeader().setBackground(new Color(62,120,202));
         jtable_prop_vendida.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_bitacora.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_bitacora.getTableHeader().setOpaque(false);
+        jtable_bitacora.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_bitacora.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_prop_en_mercado2.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_prop_en_mercado2.getTableHeader().setOpaque(false);
+        jtable_prop_en_mercado2.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_prop_en_mercado2.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_prop_ven_vendedor.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_prop_ven_vendedor.getTableHeader().setOpaque(false);
+        jtable_prop_ven_vendedor.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_prop_ven_vendedor.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_prop_ven_agente.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_prop_ven_agente.getTableHeader().setOpaque(false);
+        jtable_prop_ven_agente.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_prop_ven_agente.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_prop_asignadas.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_prop_asignadas.getTableHeader().setOpaque(false);
+        jtable_prop_asignadas.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_prop_asignadas.getTableHeader().setForeground(new Color(255,255,255));
+        
+        jtable_propiedades_compradas_comprador.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jtable_propiedades_compradas_comprador.getTableHeader().setOpaque(false);
+        jtable_propiedades_compradas_comprador.getTableHeader().setBackground(new Color(62,120,202));
+        jtable_propiedades_compradas_comprador.getTableHeader().setForeground(new Color(255,255,255));
     }
 
     @SuppressWarnings("unchecked")
@@ -127,10 +160,20 @@ public class Main extends javax.swing.JFrame {
         jl_bitacora = new javax.swing.JLabel();
         jp_container_panels = new javax.swing.JPanel();
         jp_propiedades_vendidas_agente = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jtable_prop_ven_agente = new javax.swing.JTable();
         jp_propiedades_asignadas_agente = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jtable_prop_asignadas = new javax.swing.JTable();
         jp_propiedades_vendidas_vendedor = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jtable_prop_ven_vendedor = new javax.swing.JTable();
         jp_propiedades_en_mercado = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jtable_prop_en_mercado2 = new javax.swing.JTable();
         jp_propiedades_compradas_comprador = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jtable_propiedades_compradas_comprador = new javax.swing.JTable();
         jp_mantemiento_admin = new javax.swing.JPanel();
         jtp_mantenimiento = new javax.swing.JTabbedPane();
         jp_crud_agentes = new javax.swing.JPanel();
@@ -235,6 +278,8 @@ public class Main extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         tf_comision = new javax.swing.JTextField();
         jp_bitacora_admin = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jtable_bitacora = new javax.swing.JTable();
         jp_reportes_admin = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jPopUp_agentes = new javax.swing.JPopupMenu();
@@ -999,77 +1044,359 @@ public class Main extends javax.swing.JFrame {
         jp_container_panels.setBackground(new java.awt.Color(255, 255, 255));
         jp_container_panels.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jp_propiedades_vendidas_agente.setBackground(new java.awt.Color(0, 255, 51));
+        jp_propiedades_vendidas_agente.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_prop_ven_agente.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_prop_ven_agente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Fecha Venta", "Id Agente", "Id Vendedor", "Id Comprador", "Comision"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_prop_ven_agente.setRowHeight(25);
+        jtable_prop_ven_agente.setRowMargin(0);
+        jtable_prop_ven_agente.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_prop_ven_agente.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_prop_ven_agente.getTableHeader().setReorderingAllowed(false);
+        jtable_prop_ven_agente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_prop_ven_agenteMouseClicked(evt);
+            }
+        });
+        jScrollPane13.setViewportView(jtable_prop_ven_agente);
+        if (jtable_prop_ven_agente.getColumnModel().getColumnCount() > 0) {
+            jtable_prop_ven_agente.getColumnModel().getColumn(0).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(1).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(2).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(3).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(4).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(5).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(6).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(7).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(8).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(9).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(10).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(11).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(12).setResizable(false);
+            jtable_prop_ven_agente.getColumnModel().getColumn(12).setHeaderValue("Comision");
+        }
 
         javax.swing.GroupLayout jp_propiedades_vendidas_agenteLayout = new javax.swing.GroupLayout(jp_propiedades_vendidas_agente);
         jp_propiedades_vendidas_agente.setLayout(jp_propiedades_vendidas_agenteLayout);
         jp_propiedades_vendidas_agenteLayout.setHorizontalGroup(
             jp_propiedades_vendidas_agenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_vendidas_agenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jp_propiedades_vendidas_agenteLayout.setVerticalGroup(
             jp_propiedades_vendidas_agenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_vendidas_agenteLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_propiedades_vendidas_agente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_propiedades_asignadas_agente.setBackground(new java.awt.Color(255, 255, 153));
+        jp_propiedades_asignadas_agente.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_prop_asignadas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_prop_asignadas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Id Agente", "Id Vendedor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_prop_asignadas.setRowHeight(25);
+        jtable_prop_asignadas.setRowMargin(0);
+        jtable_prop_asignadas.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_prop_asignadas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_prop_asignadas.getTableHeader().setReorderingAllowed(false);
+        jtable_prop_asignadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_prop_asignadasMouseClicked(evt);
+            }
+        });
+        jScrollPane11.setViewportView(jtable_prop_asignadas);
+        if (jtable_prop_asignadas.getColumnModel().getColumnCount() > 0) {
+            jtable_prop_asignadas.getColumnModel().getColumn(0).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(1).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(2).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(3).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(4).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(5).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(6).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(7).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(8).setResizable(false);
+            jtable_prop_asignadas.getColumnModel().getColumn(9).setResizable(false);
+        }
 
         javax.swing.GroupLayout jp_propiedades_asignadas_agenteLayout = new javax.swing.GroupLayout(jp_propiedades_asignadas_agente);
         jp_propiedades_asignadas_agente.setLayout(jp_propiedades_asignadas_agenteLayout);
         jp_propiedades_asignadas_agenteLayout.setHorizontalGroup(
             jp_propiedades_asignadas_agenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_asignadas_agenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jp_propiedades_asignadas_agenteLayout.setVerticalGroup(
             jp_propiedades_asignadas_agenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_asignadas_agenteLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_propiedades_asignadas_agente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_propiedades_vendidas_vendedor.setBackground(new java.awt.Color(255, 51, 51));
+        jp_propiedades_vendidas_vendedor.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_prop_ven_vendedor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_prop_ven_vendedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Fecha Venta", "Id Agente", "Id Vendedor", "Id Comprador", "Comision"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_prop_ven_vendedor.setRowHeight(25);
+        jtable_prop_ven_vendedor.setRowMargin(0);
+        jtable_prop_ven_vendedor.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_prop_ven_vendedor.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_prop_ven_vendedor.getTableHeader().setReorderingAllowed(false);
+        jtable_prop_ven_vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_prop_ven_vendedorMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(jtable_prop_ven_vendedor);
+        if (jtable_prop_ven_vendedor.getColumnModel().getColumnCount() > 0) {
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(0).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(1).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(2).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(3).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(4).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(5).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(6).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(7).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(8).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(9).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(10).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(11).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(12).setResizable(false);
+            jtable_prop_ven_vendedor.getColumnModel().getColumn(12).setHeaderValue("Comision");
+        }
 
         javax.swing.GroupLayout jp_propiedades_vendidas_vendedorLayout = new javax.swing.GroupLayout(jp_propiedades_vendidas_vendedor);
         jp_propiedades_vendidas_vendedor.setLayout(jp_propiedades_vendidas_vendedorLayout);
         jp_propiedades_vendidas_vendedorLayout.setHorizontalGroup(
             jp_propiedades_vendidas_vendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_vendidas_vendedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jp_propiedades_vendidas_vendedorLayout.setVerticalGroup(
             jp_propiedades_vendidas_vendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_vendidas_vendedorLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_propiedades_vendidas_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_propiedades_en_mercado.setBackground(new java.awt.Color(0, 255, 255));
+        jp_propiedades_en_mercado.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_prop_en_mercado2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_prop_en_mercado2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Id Agente", "Id Vendedor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_prop_en_mercado2.setRowHeight(25);
+        jtable_prop_en_mercado2.setRowMargin(0);
+        jtable_prop_en_mercado2.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_prop_en_mercado2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_prop_en_mercado2.getTableHeader().setReorderingAllowed(false);
+        jtable_prop_en_mercado2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_prop_en_mercado2MouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(jtable_prop_en_mercado2);
+        if (jtable_prop_en_mercado2.getColumnModel().getColumnCount() > 0) {
+            jtable_prop_en_mercado2.getColumnModel().getColumn(0).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(1).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(2).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(3).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(4).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(5).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(6).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(7).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(8).setResizable(false);
+            jtable_prop_en_mercado2.getColumnModel().getColumn(9).setResizable(false);
+        }
 
         javax.swing.GroupLayout jp_propiedades_en_mercadoLayout = new javax.swing.GroupLayout(jp_propiedades_en_mercado);
         jp_propiedades_en_mercado.setLayout(jp_propiedades_en_mercadoLayout);
         jp_propiedades_en_mercadoLayout.setHorizontalGroup(
             jp_propiedades_en_mercadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_en_mercadoLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jp_propiedades_en_mercadoLayout.setVerticalGroup(
             jp_propiedades_en_mercadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_en_mercadoLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_propiedades_en_mercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_propiedades_compradas_comprador.setBackground(new java.awt.Color(204, 255, 204));
+        jp_propiedades_compradas_comprador.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_propiedades_compradas_comprador.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_propiedades_compradas_comprador.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Ciudad", "Direccion", "Dormitorios", "Caracteristicas", "Precio", "Fecha Publicacion", "Fecha Venta", "Id Agente", "Id Vendedor", "Id Comprador", "Comision"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_propiedades_compradas_comprador.setRowHeight(25);
+        jtable_propiedades_compradas_comprador.setRowMargin(0);
+        jtable_propiedades_compradas_comprador.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_propiedades_compradas_comprador.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_propiedades_compradas_comprador.getTableHeader().setReorderingAllowed(false);
+        jtable_propiedades_compradas_comprador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_propiedades_compradas_compradorMouseClicked(evt);
+            }
+        });
+        jScrollPane14.setViewportView(jtable_propiedades_compradas_comprador);
+        if (jtable_propiedades_compradas_comprador.getColumnModel().getColumnCount() > 0) {
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(0).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(1).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(2).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(3).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(4).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(5).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(6).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(7).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(8).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(9).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(10).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(11).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(12).setResizable(false);
+            jtable_propiedades_compradas_comprador.getColumnModel().getColumn(12).setHeaderValue("Comision");
+        }
 
         javax.swing.GroupLayout jp_propiedades_compradas_compradorLayout = new javax.swing.GroupLayout(jp_propiedades_compradas_comprador);
         jp_propiedades_compradas_comprador.setLayout(jp_propiedades_compradas_compradorLayout);
         jp_propiedades_compradas_compradorLayout.setHorizontalGroup(
             jp_propiedades_compradas_compradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_compradas_compradorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jp_propiedades_compradas_compradorLayout.setVerticalGroup(
             jp_propiedades_compradas_compradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_propiedades_compradas_compradorLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_propiedades_compradas_comprador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
@@ -1266,7 +1593,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(bt_modificar_comprador)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -1296,7 +1623,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(bt_crear_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(bt_modificar_comprador, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jtp_mantenimiento.addTab("COMPRADORES", jPanel12);
@@ -1395,7 +1722,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(bt_crear_vendedor))
                             .addComponent(bt_modificar_vendedor))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -1406,7 +1733,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(27, Short.MAX_VALUE))
+                        .addContainerGap(21, Short.MAX_VALUE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addGap(6, 6, 6)
@@ -1644,6 +1971,7 @@ public class Main extends javax.swing.JFrame {
             jtable_prop_vendida.getColumnModel().getColumn(10).setResizable(false);
             jtable_prop_vendida.getColumnModel().getColumn(11).setResizable(false);
             jtable_prop_vendida.getColumnModel().getColumn(12).setResizable(false);
+            jtable_prop_vendida.getColumnModel().getColumn(12).setHeaderValue("Comision");
         }
 
         jPanel15.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 208, 830, 330));
@@ -1684,27 +2012,76 @@ public class Main extends javax.swing.JFrame {
         );
         jp_mantemiento_adminLayout.setVerticalGroup(
             jp_mantemiento_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtp_mantenimiento)
+            .addComponent(jtp_mantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
 
         jp_container_panels.add(jp_mantemiento_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_bitacora_admin.setBackground(new java.awt.Color(153, 153, 255));
+        jp_bitacora_admin.setBackground(new java.awt.Color(255, 255, 255));
+
+        jtable_bitacora.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jtable_bitacora.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "idBitacora", "Tabla Afectada", "Operacion", "Usuario", "Fecha"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtable_bitacora.setRowHeight(25);
+        jtable_bitacora.setRowMargin(0);
+        jtable_bitacora.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jtable_bitacora.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtable_bitacora.getTableHeader().setReorderingAllowed(false);
+        jtable_bitacora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_bitacoraMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(jtable_bitacora);
+        if (jtable_bitacora.getColumnModel().getColumnCount() > 0) {
+            jtable_bitacora.getColumnModel().getColumn(0).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(1).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(2).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(3).setResizable(false);
+            jtable_bitacora.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout jp_bitacora_adminLayout = new javax.swing.GroupLayout(jp_bitacora_admin);
         jp_bitacora_admin.setLayout(jp_bitacora_adminLayout);
         jp_bitacora_adminLayout.setHorizontalGroup(
             jp_bitacora_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jp_bitacora_adminLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jp_bitacora_adminLayout.setVerticalGroup(
             jp_bitacora_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jp_bitacora_adminLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jp_container_panels.add(jp_bitacora_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
-        jp_reportes_admin.setBackground(new java.awt.Color(0, 153, 153));
+        jp_reportes_admin.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jp_reportes_adminLayout = new javax.swing.GroupLayout(jp_reportes_admin);
         jp_reportes_admin.setLayout(jp_reportes_adminLayout);
@@ -2177,6 +2554,8 @@ public class Main extends javax.swing.JFrame {
                 jp_agente.setVisible(true);
                 
                 log_agente();
+                listar_propiedades_vendidas_agente();
+                
             } else if(tipo.equals("Comprador")){
                 jp_agente.setVisible(false);
                 jp_vendedor.setVisible(false);
@@ -2191,6 +2570,7 @@ public class Main extends javax.swing.JFrame {
                 jp_vendedor.setVisible(true);
                 
                 log_vendedor();
+                listar_propiedades_vendidas_vendedor();
             }
             
         } else {
@@ -2257,6 +2637,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_propiedades_vendidas_agente.setVisible(true);
+        
+        listar_propiedades_vendidas_agente();
     }//GEN-LAST:event_jp_sb_prop_ven_agenteMouseClicked
 
     private void jp_sb_prop_asig_agenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_prop_asig_agenteMouseClicked
@@ -2285,6 +2667,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_propiedades_asignadas_agente.setVisible(true);
+        
+        listar_propiedades_asignadas();
     }//GEN-LAST:event_jp_sb_prop_asig_agenteMouseClicked
 
     private void jp_sb_prop_ven_agenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_prop_ven_agenteMouseExited
@@ -2336,6 +2720,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_propiedades_vendidas_vendedor.setVisible(true);
+        
+        listar_propiedades_vendidas_vendedor();
     }//GEN-LAST:event_jp_sb_prop_ven_vendedorMouseClicked
 
     private void jp_sb_prop_merc_vendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_prop_merc_vendedorMouseClicked
@@ -2363,6 +2749,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_propiedades_en_mercado.setVisible(true);
+        
+        listarPropiedasEnMercado2();
     }//GEN-LAST:event_jp_sb_prop_merc_vendedorMouseClicked
 
     private void jp_sb_prop_ven_vendedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_prop_ven_vendedorMouseExited
@@ -2442,6 +2830,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_propiedades_en_mercado.setVisible(true);
+        
+        listarPropiedasEnMercado2();
     }//GEN-LAST:event_jp_sb_prop_merc_compradorMouseClicked
 
     private void jp_sb_prop_comp_compradorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_prop_comp_compradorMouseExited
@@ -2536,6 +2926,8 @@ public class Main extends javax.swing.JFrame {
         jp_reportes_admin.setVisible(false);
         
         jp_bitacora_admin.setVisible(true);
+        
+        update_jtable_bitacora();
     }//GEN-LAST:event_jp_sb_bitacoraMouseClicked
 
     private void jp_sb_reportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_sb_reportesMouseClicked
@@ -2640,6 +3032,8 @@ public class Main extends javax.swing.JFrame {
                 tf_direccion_crear_agente.setText("");
                 tf_celular_crear_agente.setText("");
                 tf_telefonoOficina_crear_agente.setText("");
+                
+                
             } else {
                 JOptionPane.showMessageDialog(jf_home, "El #identidad ya se encuentra en la base de datos!");
             }
@@ -3356,6 +3750,211 @@ public class Main extends javax.swing.JFrame {
         tf_comision.setText(modelo.getValueAt(row, 12).toString());
     }//GEN-LAST:event_jmi_modificar_prop_venActionPerformed
 
+    private void jtable_bitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_bitacoraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_bitacoraMouseClicked
+
+    private void jtable_prop_en_mercado2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_prop_en_mercado2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_prop_en_mercado2MouseClicked
+
+    private void jtable_prop_ven_vendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_prop_ven_vendedorMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_prop_ven_vendedorMouseClicked
+
+    private void jtable_prop_ven_agenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_prop_ven_agenteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_prop_ven_agenteMouseClicked
+
+    private void jtable_prop_asignadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_prop_asignadasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_prop_asignadasMouseClicked
+
+    private void jtable_propiedades_compradas_compradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_propiedades_compradas_compradorMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtable_propiedades_compradas_compradorMouseClicked
+
+    public void listar_propiedades_compradas_comprador(){
+        // Mostrar tabla
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_VENDIDA where noIdentidad_Comprador = " + actual_user.getNoIdentidad());
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_propiedades_compradas_comprador.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                Date fechaVenta = rs.getDate(9);
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+                String v2 = sdf.format(fechaVenta);
+                int id_agente = rs.getInt(10);
+                int id_vendedor = rs.getInt(11);
+                int id_comprador = rs.getInt(12);
+                double comision = rs.getDouble(13);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v, v2, id_agente, id_vendedor, id_comprador, comision});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void listar_propiedades_asignadas(){
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_EN_MERCADO where noIdentidad_Agente = " + actual_user.getNoIdentidad());
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_prop_mercado.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                int id_agente = rs.getInt(9);
+                int id_vendedor = rs.getInt(10);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v,id_agente, id_vendedor});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void listar_propiedades_vendidas_agente(){
+        // Mostrar tabla
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_VENDIDA where noIdentidad_Agente = " + actual_user.getNoIdentidad());
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_prop_ven_vendedor.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                Date fechaVenta = rs.getDate(9);
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+                String v2 = sdf.format(fechaVenta);
+                int id_agente = rs.getInt(10);
+                int id_vendedor = rs.getInt(11);
+                int id_comprador = rs.getInt(12);
+                double comision = rs.getDouble(13);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v, v2, id_agente, id_vendedor, id_comprador, comision});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void listar_propiedades_vendidas_vendedor(){
+        // Mostrar tabla
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_VENDIDA where noIdentidad_Vendedor = " + actual_user.getNoIdentidad());
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_prop_ven_vendedor.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                Date fechaVenta = rs.getDate(9);
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+                String v2 = sdf.format(fechaVenta);
+                int id_agente = rs.getInt(10);
+                int id_vendedor = rs.getInt(11);
+                int id_comprador = rs.getInt(12);
+                double comision = rs.getDouble(13);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v, v2, id_agente, id_vendedor, id_comprador, comision});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void listarPropiedasEnMercado2(){
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from PROPIEDAD_EN_MERCADO");
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_prop_en_mercado2.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String ciudad = rs.getString(3);
+                String direccion = rs.getString(4);
+                int cant_dormitorios = rs.getInt(5);
+                String caracteristicas = rs.getString(6);
+                double precio = rs.getDouble(7);
+                Date fechaPublicacion = rs.getDate(8);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String v = sdf.format(fechaPublicacion);
+                int id_agente = rs.getInt(9);
+                int id_vendedor = rs.getInt(10);
+                modelo.addRow(new Object[]{id, nombre, ciudad, direccion, cant_dormitorios, caracteristicas, precio, v,id_agente, id_vendedor});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void update_jtable_bitacora(){
+        Dba db = new Dba(db_Name);
+        db.conectar();
+        try {
+            db.query.execute("Select * from BITACORA");
+            ResultSet rs = db.query.getResultSet();
+            DefaultTableModel modelo = (DefaultTableModel) jtable_bitacora.getModel();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                int idBitacora = rs.getInt(1);
+                String tabla_afectada = rs.getString(2);
+                String operacion = rs.getString(3);
+                String usuario = rs.getString(4);
+                Date fecha = rs.getDate(5);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String stringDate = dateFormat.format(fecha);
+                modelo.addRow(new Object[]{idBitacora, tabla_afectada, operacion, usuario, stringDate});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void listarPropiedadesVendidas(){
         Dba db = new Dba(db_Name);
         db.conectar();
@@ -3579,9 +4178,10 @@ public class Main extends javax.swing.JFrame {
             ResultSet rs = db.query.getResultSet();
             while (rs.next()) {
                 String correo = rs.getString(1);
-                String password = rs.getString(2);
-                String user_type = rs.getString(3);
-                Usuario created_user = new Usuario(correo, password, user_type);
+                int noIdentidad = rs.getInt(2);
+                String password = rs.getString(3);
+                String user_type = rs.getString(4);
+                Usuario created_user = new Usuario(correo, noIdentidad,password, user_type);
                 lista_users.add(created_user);
             }
         } catch (Exception e) {
@@ -3817,6 +4417,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopUp_prop_ven;
     private javax.swing.JPopupMenu jPopUp_vendedores;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3824,6 +4429,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jb_crear_prop_ven;
     private javax.swing.JButton jb_mod_prop_ven;
     private com.toedter.calendar.JDateChooser jdc_fecha_pub_prop_merc;
@@ -3899,9 +4505,15 @@ public class Main extends javax.swing.JFrame {
     private test.PanelRound jp_user;
     private javax.swing.JPanel jp_vendedor;
     private javax.swing.JTable jtable_agentes;
+    private javax.swing.JTable jtable_bitacora;
     private javax.swing.JTable jtable_comprador;
+    private javax.swing.JTable jtable_prop_asignadas;
+    private javax.swing.JTable jtable_prop_en_mercado2;
     private javax.swing.JTable jtable_prop_mercado;
+    private javax.swing.JTable jtable_prop_ven_agente;
+    private javax.swing.JTable jtable_prop_ven_vendedor;
     private javax.swing.JTable jtable_prop_vendida;
+    private javax.swing.JTable jtable_propiedades_compradas_comprador;
     private javax.swing.JTable jtable_vendedor;
     private javax.swing.JTabbedPane jtp_mantenimiento;
     private javax.swing.JPasswordField pf_password_login;

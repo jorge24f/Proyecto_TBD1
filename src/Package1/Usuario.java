@@ -8,20 +8,26 @@ package Package1;
 public class Usuario {
     
     private String correo;
+    private int noIdentidad;
     private String password;
     private String user_type;
 
     public Usuario() {
     }
 
-    public Usuario(String correo, String password, String user_type) {
+    public Usuario(String correo, int noIdentidad, String password, String user_type) {
         this.correo = correo;
+        this.noIdentidad = noIdentidad;
         this.password = password;
         this.user_type = user_type;
     }
 
     public String getCorreo() {
         return correo;
+    }
+
+    public int getNoIdentidad() {
+        return noIdentidad;
     }
 
     public String getPassword() {
@@ -36,6 +42,10 @@ public class Usuario {
         this.correo = correo;
     }
 
+    public void setNoIdentidad(int noIdentidad) {
+        this.noIdentidad = noIdentidad;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -46,9 +56,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "correo=" + correo + ", password=" + password + ", user_type=" + user_type + '}';
+        return "Usuario{" + "correo=" + correo + ", noIdentidad=" + noIdentidad + ", password=" + password + ", user_type=" + user_type + '}';
     }
-    
-    
+
     
 }
