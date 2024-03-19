@@ -4,11 +4,14 @@ package Package1;
 import Database.Dba;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Main extends javax.swing.JFrame {
 
     public Main() {
+
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -303,9 +307,13 @@ public class Main extends javax.swing.JFrame {
         jPopUp_prop_merc = new javax.swing.JPopupMenu();
         jmi_modificar_prop_merc = new javax.swing.JMenuItem();
         jmi_eliminar_prop_merc = new javax.swing.JMenuItem();
+        jmi_mostrar_foto = new javax.swing.JMenuItem();
         jPopUp_prop_ven = new javax.swing.JPopupMenu();
         jmi_modificar_prop_ven = new javax.swing.JMenuItem();
         jmi_eliminar_prop_ven = new javax.swing.JMenuItem();
+        jmi_ver_foto = new javax.swing.JMenuItem();
+        jd_mostar_foto = new javax.swing.JDialog();
+        label_foto = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1671,7 +1679,7 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Identidad", "Nombre", "Direccion", "Celular"
+                "Identitad", "Nombre", "Direccion", "Celular"
             }
         ) {
             Class[] types = new Class [] {
@@ -1701,11 +1709,7 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jtable_vendedor);
         if (jtable_vendedor.getColumnModel().getColumnCount() > 0) {
-            jtable_vendedor.getColumnModel().getColumn(0).setHeaderValue("Tabla Afectada");
-            jtable_vendedor.getColumnModel().getColumn(1).setHeaderValue("Operacion");
-            jtable_vendedor.getColumnModel().getColumn(2).setHeaderValue("Usuario");
             jtable_vendedor.getColumnModel().getColumn(3).setResizable(false);
-            jtable_vendedor.getColumnModel().getColumn(3).setHeaderValue("Fecha");
         }
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -1733,8 +1737,8 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(bt_crear_vendedor))
                             .addComponent(bt_modificar_vendedor))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1742,8 +1746,8 @@ public class Main extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addGap(6, 6, 6)
@@ -1760,7 +1764,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addComponent(bt_crear_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
                         .addComponent(bt_modificar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2022,7 +2026,7 @@ public class Main extends javax.swing.JFrame {
         );
         jp_mantemiento_adminLayout.setVerticalGroup(
             jp_mantemiento_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtp_mantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(jtp_mantenimiento)
         );
 
         jp_container_panels.add(jp_mantemiento_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
@@ -2226,6 +2230,15 @@ public class Main extends javax.swing.JFrame {
         });
         jPopUp_prop_merc.add(jmi_eliminar_prop_merc);
 
+        jmi_mostrar_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/galeria-de-imagenes.png"))); // NOI18N
+        jmi_mostrar_foto.setText("Ver Foto");
+        jmi_mostrar_foto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_mostrar_fotoActionPerformed(evt);
+            }
+        });
+        jPopUp_prop_merc.add(jmi_mostrar_foto);
+
         jmi_modificar_prop_ven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Modify16px.png"))); // NOI18N
         jmi_modificar_prop_ven.setText("Modificar");
         jmi_modificar_prop_ven.addActionListener(new java.awt.event.ActionListener() {
@@ -2243,6 +2256,32 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPopUp_prop_ven.add(jmi_eliminar_prop_ven);
+
+        jmi_ver_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/galeria-de-imagenes.png"))); // NOI18N
+        jmi_ver_foto.setText("Ver Foto");
+        jmi_ver_foto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_ver_fotoActionPerformed(evt);
+            }
+        });
+        jPopUp_prop_ven.add(jmi_ver_foto);
+
+        javax.swing.GroupLayout jd_mostar_fotoLayout = new javax.swing.GroupLayout(jd_mostar_foto.getContentPane());
+        jd_mostar_foto.getContentPane().setLayout(jd_mostar_fotoLayout);
+        jd_mostar_fotoLayout.setHorizontalGroup(
+            jd_mostar_fotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mostar_fotoLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(label_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jd_mostar_fotoLayout.setVerticalGroup(
+            jd_mostar_fotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mostar_fotoLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(label_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3028,7 +3067,7 @@ public class Main extends javax.swing.JFrame {
 
             
             try {
-                db.query.execute("Select * from VENTASxAGENTE");
+                db.query.execute("Select * from VENTASxAGENTE_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3875,7 +3914,7 @@ public class Main extends javax.swing.JFrame {
 
             
             try {
-                db.query.execute("Select * from VENTASxAGENTE");
+                db.query.execute("Select * from VENTASxAGENTE_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3896,7 +3935,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from VENTASxVENDEDOR");
+                db.query.execute("Select * from VENTASxVENDEDOR_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3917,7 +3956,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from COMPRASxCOMPRADOR");
+                db.query.execute("Select * from COMPRASxCOMPRADOR_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3938,7 +3977,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from VENTASxUBICACION");
+                db.query.execute("Select * from VENTASxUBICACION_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3959,7 +3998,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from VENTASxPRECIO");
+                db.query.execute("Select * from VENTASxPRECIO_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -3980,7 +4019,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from VENTASxCARACTERISTICAS");
+                db.query.execute("Select * from VENTASxCARACTERISTICAS_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -4001,7 +4040,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[2];
 
             try {
-                db.query.execute("Select * from AGENTExVENTAS_MAYOR_TOTAL");
+                db.query.execute("Select * from AGENTExVENTAS_MAYOR_TOTAL_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -4023,7 +4062,7 @@ public class Main extends javax.swing.JFrame {
             String[] datos = new String[3];
 
             try {
-                db.query.execute("Select * from VISTA_8");
+                db.query.execute("Select * from VISTA_8_VIEW");
                 ResultSet rs = db.query.getResultSet();
                 while(rs.next()){
                     datos[0] = rs.getString(1);
@@ -4037,6 +4076,38 @@ public class Main extends javax.swing.JFrame {
         }
         db.desconectar();
     }//GEN-LAST:event_cb_vistasItemStateChanged
+
+    private void jmi_mostrar_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_mostrar_fotoActionPerformed
+        // Mostrar Foto
+        int numero = (int) (Math.random() * 3) + 1;
+        //System.out.println(numero);
+        //ImageIcon image = new ImageIcon("src/Images/Casa 1.jpg");
+        ImageIcon image = new ImageIcon("src/Images/Casa " + numero + ".jpg");
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(520, 350, Image.SCALE_DEFAULT));
+        label_foto.setIcon(icon);
+        this.repaint();
+        jd_mostar_foto.setResizable(false);
+        jd_mostar_foto.setModal(true);
+        jd_mostar_foto.pack();
+        jd_mostar_foto.setLocationRelativeTo(jf_home);
+        jd_mostar_foto.setVisible(true);
+    }//GEN-LAST:event_jmi_mostrar_fotoActionPerformed
+
+    private void jmi_ver_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ver_fotoActionPerformed
+        // Mostrar Foto
+        int numero = (int) (Math.random() * 3) + 1;
+        //System.out.println(numero);
+        //ImageIcon image = new ImageIcon("src/Images/Casa 1.jpg");
+        ImageIcon image = new ImageIcon("src/Images/Casa " + numero + ".jpg");
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(520, 350, Image.SCALE_DEFAULT));
+        label_foto.setIcon(icon);
+        this.repaint();
+        jd_mostar_foto.setResizable(false);
+        jd_mostar_foto.setModal(true);
+        jd_mostar_foto.pack();
+        jd_mostar_foto.setLocationRelativeTo(jf_home);
+        jd_mostar_foto.setVisible(true);
+    }//GEN-LAST:event_jmi_ver_fotoActionPerformed
 
     public void listar_propiedades_compradas_comprador(){
         // Mostrar tabla
@@ -4699,6 +4770,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jb_crear_prop_ven;
     private javax.swing.JButton jb_mod_prop_ven;
+    private javax.swing.JDialog jd_mostar_foto;
     private com.toedter.calendar.JDateChooser jdc_fecha_pub_prop_merc;
     private com.toedter.calendar.JDateChooser jdc_fecha_pub_prop_ven;
     private com.toedter.calendar.JDateChooser jdc_fecha_venta_prop_ven;
@@ -4726,6 +4798,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_modificar_prop_merc;
     private javax.swing.JMenuItem jmi_modificar_prop_ven;
     private javax.swing.JMenuItem jmi_modificar_vendedor;
+    private javax.swing.JMenuItem jmi_mostrar_foto;
+    private javax.swing.JMenuItem jmi_ver_foto;
     private javax.swing.JPanel jp_Header_Inicio;
     private javax.swing.JPanel jp_adm;
     private test.PanelRound jp_admin;
@@ -4784,6 +4858,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jtable_reportes;
     private javax.swing.JTable jtable_vendedor;
     private javax.swing.JTabbedPane jtp_mantenimiento;
+    private javax.swing.JLabel label_foto;
     private javax.swing.JPasswordField pf_password_login;
     private test.PanelRound rp_entrar_login;
     private test.PanelRound rp_userHolder;
